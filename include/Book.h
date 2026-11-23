@@ -21,6 +21,7 @@ private:
     std::string language;
     std::string location;
     ReadingStatus status;
+    int numberOfPages;
 
 public:
     Book(
@@ -30,7 +31,8 @@ public:
         const std::string& isbn,
         int publicationYear,
         const std::string& language,
-        const std::string& location
+        const std::string& location,
+        int numberOfPages
     );
 
     // ========== GET functions ========= //
@@ -59,6 +61,9 @@ public:
     // get physical location of a book
     std::string getPhysicalLocation() const;
 
+    // get number of pages
+    int getNumberOfPages() const;
+
     // ========== SET functions ========= //
 
     // set reading status
@@ -69,6 +74,9 @@ public:
 
     // set language
     void setLanguage(const std::string& newLanguage);
+
+    // set number of pages
+    void setNumberOfPages(int newNumberOfPages);
 
     // convert ReadingStatus to string
     std::string statusToString(ReadingStatus status) const;

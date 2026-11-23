@@ -9,7 +9,8 @@ Book::Book(
     const std::string& isbn,
     int publicationYear,
     const std::string& language,
-    const std::string& location
+    const std::string& location,
+    int numberOfPages
 )
 
     : id(id),
@@ -19,7 +20,8 @@ Book::Book(
       publicationYear(publicationYear),
       language(language),
       location(location),
-      status(ReadingStatus::Unread)
+      status(ReadingStatus::Unread),
+      numberOfPages(numberOfPages)
 
 {
 }
@@ -56,6 +58,10 @@ std::string Book::getPhysicalLocation() const {
     return location;
 }
 
+int Book::getNumberOfPages() const {
+    return numberOfPages;
+}
+
 void Book::setStatus(ReadingStatus newStatus) {
     status = newStatus;
 }
@@ -66,6 +72,10 @@ void Book::setPhysicalLocation(const std::string& newLocation) {
 
 void Book::setLanguage(const std::string& newLanguage) {
     language = newLanguage;
+}
+
+void Book::setNumberOfPages(int newNumberOfPages) {
+    numberOfPages = newNumberOfPages;
 }
 
 std::string Book::statusToString(ReadingStatus status) const {
@@ -100,4 +110,5 @@ void Book::display() const {
     std::cout << "Language: " << language << '\n';
     std::cout << "Location: " << location << '\n';
     std::cout << "Reading status: " << statusToString(status) << '\n';
+    std::cout << "Number of pages: " << numberOfPages << '\n';
 }

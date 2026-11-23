@@ -10,7 +10,8 @@ int main() {
         "9780525559474",
         2020,
         "English",
-        "Budapest"
+        "Budapest",
+        288
     );
 
 book1.display();
