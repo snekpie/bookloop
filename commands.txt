@@ -1,0 +1,89 @@
+BOOKLOOP - CMAKE BUILD PIPELINE
+==============================
+
+1. NAVIGATE TO THE PROJECT DIRECTORY
+
+   cd C:\BookLoop
+
+
+2. CONFIGURE THE PROJECT (CMAKE)
+
+   cmake -S . -B build
+
+   -S .      -> Source directory (current folder)
+   -B build  -> Directory for generated build files
+
+   NOTE: Only required for the initial setup or when
+   changing build configuration. CMake can also
+   regenerate automatically when CMakeLists.txt changes.
+
+
+3. BUILD THE PROJECT
+
+   cmake --build build
+
+   Compiles the C++ source files and links them
+   into an executable (bookloop.exe).
+
+
+4. RUN THE APPLICATION
+
+   .\build\Debug\bookloop.exe
+
+   Executes BookLoop in PowerShell.
+   Path assumes the Visual Studio Debug configuration.
+
+
+5. BUILD IN RELEASE MODE (OPTIONAL)
+
+   cmake --build build --config Release
+
+   Run the optimized executable:
+
+   .\build\Release\bookloop.exe
+
+
+6. CLEAN AND REBUILD (OPTIONAL)
+
+   Remove-Item -Recurse -Force build
+
+   cmake -S . -B build
+   cmake --build build
+
+   Deletes generated build files and rebuilds
+   the project from scratch.
+
+
+DAILY DEVELOPMENT WORKFLOW
+==========================
+
+After modifying C++ source files:
+
+   cd C:\BookLoop
+   cmake --build build
+   .\build\Debug\bookloop.exe
+
+You normally do not need to run the CMake configuration
+command again after every code change.
+
+
+GIT WORKFLOW
+============
+
+Check modified files:
+
+   git status
+
+Stage changes:
+
+   git add .
+
+Commit changes:
+
+   git commit -m "Describe your changes"
+
+Push to GitHub:
+
+   git push
+
+NOTE: Keep build/ in .gitignore.
